@@ -43,6 +43,14 @@ export default class Client {
     return this.authenticate_(request, '/user/register');
   }
 
+  resetPassword(request) {
+    return this.authenticate_(request, '/user/reset-password');
+  }
+
+  changePassword(request) {
+    return this.authenticate_(request, '/user/change-password');
+  }
+
   disconnect() {
     this.socket_.close();
   }

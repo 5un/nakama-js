@@ -10,6 +10,8 @@ Object.assign(AuthenticateRequest, {
   email,
   facebook,
   google,
+  resetPassword,
+  changePassword,
 });
 
 function custom(id) {
@@ -44,3 +46,21 @@ function google(oauthToken) {
     google: oauthToken,
   });
 }
+
+function resetPassword(email) {
+  return new AuthenticateRequest({
+    reset_password: {
+      email,
+    },
+  });
+}
+
+function changePassword(reset_token, password) {
+  return new AuthenticateRequest({
+    change_password: {
+      reset_token,
+      password,
+    },
+  });
+}
+
